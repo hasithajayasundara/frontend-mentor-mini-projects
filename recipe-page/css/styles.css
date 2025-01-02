@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+:root{
+  --ff-primary: 'Outfit', sans-serif;
+  --ff-secondary: 'Young Serif', sans-serif;
+}
+
+body{
+  font-family: var(--ff-primary);
+}
