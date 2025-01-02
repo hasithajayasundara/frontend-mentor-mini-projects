@@ -1,14 +1,161 @@
 *,
 *::before,
-*::after{
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-:root{
+:root {
   --ff-primary: 'Outfit', sans-serif;
   --ff-secondary: 'Young Serif', sans-serif;
+
+  --fw-reg: 300;
+  --fw-bold: 700;
+
+  --clr-light: #fff;
+  --clr-primary: #4a4033;
+  --clr-primary-dark: #2c1d15;
+  --clr-primary-light: #d6944f;
+  --clr-secondary: #ae3ec9;
+  --clr-secondary-light: #f3d9fa;
+  --clr-accent: #f5efe8;
+
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 2rem;
+  --fs-body: 1.5rem;
 }
 
-body{
+/*@media(min-width: 800px) {
+  :root {
+    --fs-h1: 4.5rem;
+    --fs-h2: 3.75rem;
+    --fs-h3: 1.5rem;
+    --fs-body: 1.125rem;
+  }
+}*/
+
+
+/* General styles */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
   font-family: var(--ff-primary);
+  background: var(--clr-accent);
+  font-size: var(--fs-body);
+  color: var(--clr-primary);
+}
+
+.container {
+  width: 70%;
+  margin: 5em auto;
+  padding: 2em;
+  background: var(--clr-light);
+}
+
+header {
+  width: 100%;
+  margin: 0 auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+hr {
+  height: 0.1rem;
+  border: none;
+  background: var(--clr-primary-light);
+}
+
+.pre-data__list,
+.instructions-list,
+.ingredients-list {
+  margin-left: 0.9em;
+}
+
+.pre-data__list li span,
+.instructions-list li span {
+  font-weight: var(--fw-bold);
+  margin-right: 0.2em;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  line-height: 1;
+}
+
+h1,
+h2 {
+  font-family: var(--ff-secondary);
+  font-weight: var(--fw-reg);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  color: var(--clr-primary-dark);
+}
+
+h2 {
+  color: var(--clr-primary-light);
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  font-family: var(--ff-primary);
+}
+
+.section__title {
+  margin-bottom: 0.5em;
+}
+
+/* Header */
+.header {
+  article {
+    padding: 1.5em;
+    background-color: var(--clr-secondary-light);
+  }
+
+  .article__header {
+    color: var(--clr-secondary);
+    margin-bottom: 0.5em;
+  }
+}
+
+.header__img {
+  margin-bottom: 2em;
+}
+
+.header__title {
+  margin-bottom: 0.5em;
+}
+
+.header__text {
+  margin-bottom: 1em;
+}
+
+/* Main */
+
+.main>section {
+  margin: 1.5em 0;
+}
+
+/* Ingredients */
+
+/* Instructions */
+
+.instructions-list {
+  
 }
