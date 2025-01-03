@@ -5,3 +5,27 @@
   margin: 0;
   padding: 0;
 }
+
+:root{
+  --ff-primary: "Red Hat Text", serif;
+
+  --clr-primary: #952c0c;
+  --clr-primary-light: #fcf8f5;
+  --clr-primary-dark: #29140e;
+  --clr-secondary: #b85341;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body{
+  background: var(--clr-primary-light);
+  font-family: var(--ff-primary);
+  color: var(--clr-primary-dark);
+}
+
+.container{
+  margin: 0 auto;
+  padding: 2em;
+}
