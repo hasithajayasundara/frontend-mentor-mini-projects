@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel index.html"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "Hasitha Jayasundara",
@@ -12,10 +13,8 @@
   "description": "",
   "devDependencies": {
     "@eslint/js": "^9.17.0",
-    "core-js": "^3.39.0",
     "eslint": "^9.17.0",
     "globals": "^15.14.0",
-    "parcel": "^2.13.3",
-    "regenerator-runtime": "^0.14.1"
+    "vite": "^6.0.7"
   }
 }

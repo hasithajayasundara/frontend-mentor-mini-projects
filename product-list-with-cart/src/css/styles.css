@@ -13,7 +13,12 @@
   --clr-primary-light: #fcf8f5;
   --clr-primary-dark: #29140e;
   --clr-secondary: #b85341;
+
+  --fs-h1: 2.5rem;
+  --fs-body: 1.5rem;
 }
+
+/* General styles */
 
 html{
   font-size: 62.5%;
@@ -23,9 +28,21 @@ body{
   background: var(--clr-primary-light);
   font-family: var(--ff-primary);
   color: var(--clr-primary-dark);
+  font-size: var(--fs-body);
 }
 
 .container{
   margin: 0 auto;
   padding: 2em;
+}
+
+img{
+  display: block;
+  max-width: 100%;
+}
+
+/* Typography */
+
+h1{
+  font-size: var(--fs-h1);
 }
