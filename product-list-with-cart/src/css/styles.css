@@ -1,57 +1,78 @@
 *,
 *::after,
-*::before{
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-:root{
+:root {
   --ff-primary: "Red Hat Text", serif;
 
   --clr-primary: #952c0c;
-  --clr-primary-light: #fcf8f5;
+  --clr-primary-light: #c39472;
   --clr-primary-dark: #29140e;
+  --clr--accent: #f7f6f5;
   --clr-secondary: #b85341;
 
-  --fs-h1: 2.5rem;
-  --fs-body: 1.5rem;
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  --fs-h1: 4rem;
+  --fs-body: 2rem;
 }
 
 /* General styles */
 
-html{
+html {
   font-size: 62.5%;
 }
 
-body{
-  background: var(--clr-primary-light);
+body {
+  background: var(--clr--accent);
   font-family: var(--ff-primary);
   color: var(--clr-primary-dark);
   font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
 }
 
-.container{
+.container {
   margin: 0 auto;
-  padding: 2em;
+  padding: 0em 2em;
 }
 
-img{
+img {
   display: block;
   max-width: 100%;
 }
 
+.btn{
+  padding: 0.6em 1.5em;
+  border: 1px solid var(--clr-primary);
+  border-radius: 25%;
+  background-color: #fff;
+  border-radius: 40px;
+  font-weight: calc(var(--fw-bold) - 150);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.btn:hover{
+  background-color: var(--clr--accent);
+}
+
 /* Typography */
 
-h1{
+h1 {
   font-size: var(--fs-h1);
 }
 
 /* Loader */
 
 .loader {
-  border: 1rem solid var(--clr-primary-dark);
-  border-top: 1rem solid var(--clr-primary); 
+  border: 0.6rem solid var(--clr-primary-dark);
+  border-top: 0.6rem solid var(--clr-primary);
   border-radius: 50%;
   width: 5rem;
   height: 5rem;
@@ -59,7 +80,73 @@ h1{
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
+/* Products */
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 30rem;
+  margin-bottom: 2rem;
+}
+
+.product__header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.product__data {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.product__img {
+  border: 1px solid var(--clr--accent);
+  border-radius: 5%;
+  overflow: hidden;
+}
+
+.product__name{
+  font-weight: var(--fw-bold);
+}
+
+.product__category {
+  color: var(--clr-primary-light);
+}
+
+.product__price{
+  color: var(--clr-secondary);
+  font-weight: 600;
+}
+
+.add-to-cart__btn{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(50%);
+
+  img{
+    height: 2.5rem;
+    margin-right: 0.5em;
+  }
+}

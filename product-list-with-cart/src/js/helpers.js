@@ -1,5 +1,6 @@
 export const mapProducts = (products) => products.map((p) => ({
   ...p,
+  price: new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(p.price),
   srcset: Object.entries(p.image).map(([key, value]) => {
     switch (key) {
       case 'desktop':
