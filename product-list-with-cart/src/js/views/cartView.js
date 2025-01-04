@@ -17,6 +17,18 @@ class CartView extends View {
     });
   }
 
+  addHandlerConfirmOrder(handler){
+    this._parent.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const confirmButton = e.target.closest('.confirm-order__btn');
+      if(!confirmButton){
+        return;
+      }
+
+      handler();
+    });
+  }
+
   _generateCartItems() {
     const markup = this._data.cart.items.allIds.map((id) => {
       const product = this._data.products.byId.get(id);
@@ -71,7 +83,7 @@ class CartView extends View {
             This is a&nbsp;<span>carbon neutral</span>&nbsp;delivery
         </div>
         <div class="confirm-order">
-          <button class="btn confirm-order--btn active"> 
+          <button class="btn confirm-order__btn active"> 
             Confirm Order
           </button>
         </div>

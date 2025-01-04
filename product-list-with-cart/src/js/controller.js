@@ -1,9 +1,14 @@
 import { data } from './mocks/data';
 import { state } from './model';
 import { mapProducts } from './helpers';
+import {
+  CART_OPERATION_DECREMENT,
+  CART_OPERATION_INCREMENT
+} from './constants';
+
 import productView from './views/productView';
 import cartView from './views/cartView';
-import { CART_OPERATION_DECREMENT, CART_OPERATION_INCREMENT } from './constants';
+import orderConfirmedView from './views/orderConfirmedView';
 
 export const getProducts = async () => new Promise((resolve) => {
   setTimeout(() => {
@@ -93,10 +98,23 @@ const controlRemoveCartItem = (id) => {
 
     // Modify items count
     state.cart.totalItems -= quantity;
-    
+
     productView.render(state);
     cartView.render(state);
   }
+};
+
+const controlConfirmOrder = () => {
+  orderConfirmedView.render(state);
+};
+
+const controlStartNewOrder = () => {
+  state.cart.totalPrice = 0;
+  state.cart.totalItems = 0;
+  state.cart.items.allIds = [];
+  state.cart.items.byId = new Map();
+  productView.render(state);
+  cartView.render(state);
 };
 
 const init = () => {
@@ -104,6 +122,8 @@ const init = () => {
   productView.addHandlerAddToCart(controlAddToCart);
   productView.addHandlerChangeCart(controlChangeCart);
   cartView.addHandlerRemoveItem(controlRemoveCartItem);
+  cartView.addHandlerConfirmOrder(controlConfirmOrder);
+  orderConfirmedView.addHandlerStartNewOrder(controlStartNewOrder);
 };
 
 init();
