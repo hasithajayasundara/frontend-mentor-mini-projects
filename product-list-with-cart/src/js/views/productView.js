@@ -14,7 +14,7 @@ class ProductView extends View {
 
   render(data) {
     super.render(data);
-    this._parent.classList.toggle('loading');
+    this._parent.classList.remove('loading');
   }
 
   addHandlerRender(handler) {

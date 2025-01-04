@@ -23,7 +23,7 @@
   --fs-body: 1.5rem;
 }
 
-@media(min-width:800px) {
+@media(min-width:1000px) {
   :root {
     --fs-h1: 3rem;
     --fs-body: 1.8rem;
@@ -135,7 +135,7 @@ h1 {
   gap: 2rem;
 }
 
-.products.loading{
+.products.loading {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -252,6 +252,12 @@ h1 {
 /* Cart */
 .cart {
   background: #fff;
+}
+
+@media (min-width: 1000px){
+  .cart{
+    min-width: 40rem;
+  }
 }
 
 .cart__header {
