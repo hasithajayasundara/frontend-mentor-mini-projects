@@ -5,6 +5,10 @@ import {
 } from '../constants';
 import { formatCurrency } from '../helpers';
 
+import iconDecrement from '../../img/icon-decrement-quantity.svg';
+import iconIncrement from '../../img/icon-increment-quantity.svg';
+import iconAddToCart from '../../img/icon-add-to-cart.svg';
+
 class ProductView extends View {
   _parent = document.querySelector('.products');
 
@@ -60,11 +64,11 @@ class ProductView extends View {
       return `
       <div class="change-quantity">
         <button class="decrement-quantity__btn" data-id="${id}">
-          <img src="src/assets/icon-decrement-quantity.svg" alt="Decrement quantity button"/>
+          <img src="${iconDecrement}" alt="Decrement quantity button"/>
         </button>
         ${this._data.cart.items.byId.get(id)}
         <button class="increment-quantity__btn" data-id="${id}">
-          <img src="src/assets/icon-increment-quantity.svg" alt="Add to cart icon"/>
+          <img src="${iconIncrement}" alt="Add to cart icon"/>
         </button>
       </div>
     `
@@ -72,7 +76,7 @@ class ProductView extends View {
 
     return `
       <button class="btn add-to-cart__btn" data-id="${id}">
-        <img src="src/assets/icon-add-to-cart.svg" alt="Increment quantity button"/>
+        <img src="${iconAddToCart}" alt="Increment quantity button"/>
         Add to cart
       </button>
     `

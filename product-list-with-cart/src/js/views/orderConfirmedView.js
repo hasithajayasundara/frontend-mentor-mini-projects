@@ -1,6 +1,8 @@
 import { formatCurrency } from '../helpers';
 import View from './view';
 
+import iconOrderConfirmed from '../../img/icon-order-confirmed.svg';
+
 class OrderConfirmedView extends View {
   _parent = document.querySelector('.order-confirmed__dialog');
 
@@ -60,7 +62,7 @@ class OrderConfirmedView extends View {
 
   _generateMarkup() {
     return `
-      <img src="src/assets/icon-order-confirmed.svg" alt="Add to cart icon"/>
+      <img src="${iconOrderConfirmed}" alt="Add to cart icon"/>
       <h1>Order confirmed</h1>
       <p>We hope you enjoy your food</p>
       <ul class="order-confirmed__list">

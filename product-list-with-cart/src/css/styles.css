@@ -26,7 +26,7 @@
 @media(min-width:800px){
   :root {
     --fs-h1: 3rem;
-    --fs-body: 2rem;
+    --fs-body: 1.8rem;
   }
 }
 
