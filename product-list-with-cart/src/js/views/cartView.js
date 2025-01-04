@@ -8,6 +8,11 @@ import emptyCartImage from '../../img/illustration-empty-cart.svg';
 class CartView extends View {
   _parent = document.querySelector('.cart');
 
+  render(data) {
+    super.render(data);
+    this._parent.classList.remove('loading');
+  }
+
   addHandlerRemoveItem(handler){
     this._parent.addEventListener('click', (e)=>{
       e.preventDefault();

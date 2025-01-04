@@ -258,6 +258,10 @@ h1 {
   .cart{
     min-width: 40rem;
   }
+
+  .cart.loading{
+    min-width: 0;
+  }
 }
 
 .cart__header {
