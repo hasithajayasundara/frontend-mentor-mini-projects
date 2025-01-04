@@ -23,7 +23,7 @@
   --fs-body: 1.5rem;
 }
 
-@media(min-width:800px){
+@media(min-width:800px) {
   :root {
     --fs-h1: 3rem;
     --fs-body: 1.8rem;
@@ -133,6 +133,12 @@ h1 {
   display: grid;
   justify-items: center;
   gap: 2rem;
+}
+
+.products.loading{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 @media(min-width: 600px) {
@@ -278,7 +284,7 @@ h1 {
   gap: 2rem;
 }
 
-.cart__list{
+.cart__list {
   overflow-y: auto;
 }
 

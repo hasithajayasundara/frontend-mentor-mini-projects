@@ -12,6 +12,11 @@ import iconAddToCart from '../../img/icon-add-to-cart.svg';
 class ProductView extends View {
   _parent = document.querySelector('.products');
 
+  render(data) {
+    super.render(data);
+    this._parent.classList.toggle('loading');
+  }
+
   addHandlerRender(handler) {
     window.addEventListener('load', handler);
   }

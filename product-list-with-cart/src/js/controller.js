@@ -15,7 +15,7 @@ export const getProducts = async () => new Promise((resolve) => {
     const { productMap, productIds } = mapProducts(data);
     state.products = { byId: productMap, allIds: productIds };
     resolve();
-  }, 1000);
+  }, 2000);
 });
 
 const controlProducts = async () => {
