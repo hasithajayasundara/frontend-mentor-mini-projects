@@ -4,7 +4,8 @@ export const state = {
     allIds: [],
   },
   cart: {
-    total: '',
+    totalPrice: 0,
+    totalItems: 0,
     items: {
       byId: new Map(),
       allIds: [],

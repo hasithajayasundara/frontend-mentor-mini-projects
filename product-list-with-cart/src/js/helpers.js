@@ -1,5 +1,10 @@
 import { v4 } from 'uuid';
 
+export const formatCurrency = (price) => new Intl.NumberFormat(
+  'en-US',
+  { style: 'currency', currency: 'USD' }
+).format(price);
+
 export const mapProducts = (products) => {
   const productMap = new Map();
   const productIds = [];
@@ -7,7 +12,6 @@ export const mapProducts = (products) => {
     const product = {
       ...p,
       id: v4(),
-      price: new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(p.price),
       srcset: Object.entries(p.image).map(([key, value]) => {
         switch (key) {
           case 'desktop':

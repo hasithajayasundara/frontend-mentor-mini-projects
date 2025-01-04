@@ -1,4 +1,9 @@
 import View from './view';
+import {
+  CART_OPERATION_DECREMENT,
+  CART_OPERATION_INCREMENT
+} from '../constants';
+import { formatCurrency } from '../helpers';
 
 class ProductView extends View {
   _parent = document.querySelector('.products');
@@ -10,12 +15,12 @@ class ProductView extends View {
   addHandlerAddToCart(handler) {
     this._parent.addEventListener('click', (e) => {
       e.preventDefault();
-      const { target } = e;
-      if (!target.classList.contains('add-to-cart__btn')) {
+      const addToCartButton = e.target.closest('.add-to-cart__btn');
+      if (!addToCartButton) {
         return;
       }
 
-      const id = target.dataset.id;
+      const id = addToCartButton.dataset.id;
       if (!id) {
         return;
       }
@@ -24,15 +29,41 @@ class ProductView extends View {
     });
   }
 
+  addHandlerChangeCart(handler) {
+    this._parent.addEventListener('click', (e) => {
+      e.preventDefault();
+      const decrementQuantityButton = e.target.closest('.decrement-quantity__btn');
+      const incrementQuantityButton = e.target.closest('.increment-quantity__btn');
+      if (!decrementQuantityButton && !incrementQuantityButton) {
+        return;
+      }
+
+      let id = '', operation = '';
+      if (incrementQuantityButton) {
+        id = incrementQuantityButton.dataset.id;
+        operation = CART_OPERATION_INCREMENT;
+      } else if (decrementQuantityButton) {
+        id = decrementQuantityButton.dataset.id;
+        operation = CART_OPERATION_DECREMENT;
+      }
+
+      if (!id) {
+        return;
+      }
+
+      handler?.(id, operation);
+    });
+  }
+
   _generateAddToCartButton(isAddedToCart, id) {
     if (isAddedToCart) {
       return `
       <div class="change-quantity">
-        <button class="decrement__quantity--btn">
-          <img src="src/assets/icon-decrement-quantity.svg" alt="Add to cart icon"/>
+        <button class="decrement-quantity__btn" data-id="${id}">
+          <img src="src/assets/icon-decrement-quantity.svg" alt="Decrement quantity button"/>
         </button>
         ${this._data.cart.items.byId.get(id)}
-        <button class="increment__quantity--btn">
+        <button class="increment-quantity__btn" data-id="${id}">
           <img src="src/assets/icon-increment-quantity.svg" alt="Add to cart icon"/>
         </button>
       </div>
@@ -41,7 +72,7 @@ class ProductView extends View {
 
     return `
       <button class="btn add-to-cart__btn" data-id="${id}">
-        <img src="src/assets/icon-add-to-cart.svg" alt="Add to cart icon"/>
+        <img src="src/assets/icon-add-to-cart.svg" alt="Increment quantity button"/>
         Add to cart
       </button>
     `
@@ -56,7 +87,7 @@ class ProductView extends View {
       }
 
       let className = 'product';
-      if(isAddedToCart){
+      if (isAddedToCart) {
         className = className.concat(' active');
       }
 
@@ -76,7 +107,7 @@ class ProductView extends View {
           <div class="product__data">
             <div class="product__category">${product.category}</div>
             <div class="product__name">${product.name}</div>
-            <div class="product__price">${product.price}</div>
+            <div class="product__price">${formatCurrency(product.price)}</div>
           </div>
         </div>
     `});
