@@ -1,50 +1,85 @@
-class ProductView {
-  #data;
-  #parent = document.querySelector('.products');
+import View from './view';
 
-  render(data) {
-    this.#data = data;
-    const markup = this.#generateMarkup?.();
-    this.#clear();
-    this.#parent.insertAdjacentHTML('afterbegin', markup);
-  }
-
-  renderSpinner() {
-    this.#clear();
-    this.#parent.insertAdjacentHTML('afterbegin', '<div class="loader"></div>')
-  }
+class ProductView extends View {
+  _parent = document.querySelector('.products');
 
   addHandlerRender(handler) {
     window.addEventListener('load', handler);
   }
 
-  #clear() {
-    this.#parent.innerHTML = "";
+  addHandlerAddToCart(handler) {
+    this._parent.addEventListener('click', (e) => {
+      e.preventDefault();
+      const { target } = e;
+      if (!target.classList.contains('add-to-cart__btn')) {
+        return;
+      }
+
+      const id = target.dataset.id;
+      if (!id) {
+        return;
+      }
+
+      handler?.(id);
+    });
   }
 
-  #generateMarkup() {
-    const markup = this.#data.map((p) => `
-      <div class="product">
-        <div class="product__header">
-          <div class="product__img">
-            <img 
-              src="${p.image.thumbnail}" 
-              alt="Image of ${p.name}" 
-              srcset="${p.srcset}"
-            >
-          </div>
-          <button class="btn add-to-cart__btn">
-            <img src="src/assets/icon-add-to-cart.svg" alt="Add to cart icon"/>
-            Add to cart
-          </button>
-        </div>
-        <div class="product__data">
-          <div class="product__category">${p.category}</div>
-          <div class="product__name">${p.name}</div>
-          <div class="product__price">${p.price}</div>
-        </div>
+  _generateAddToCartButton(isAddedToCart, id) {
+    if (isAddedToCart) {
+      return `
+      <div class="change-quantity">
+        <button class="decrement__quantity--btn">
+          <img src="src/assets/icon-decrement-quantity.svg" alt="Add to cart icon"/>
+        </button>
+        ${this._data.cart.items.byId.get(id)}
+        <button class="increment__quantity--btn">
+          <img src="src/assets/icon-increment-quantity.svg" alt="Add to cart icon"/>
+        </button>
       </div>
-    `);
+    `
+    }
+
+    return `
+      <button class="btn add-to-cart__btn" data-id="${id}">
+        <img src="src/assets/icon-add-to-cart.svg" alt="Add to cart icon"/>
+        Add to cart
+      </button>
+    `
+  }
+
+  _generateMarkup() {
+    const markup = this._data.products.allIds.map((id) => {
+      const product = this._data.products.byId.get(id);
+      let isAddedToCart = false;
+      if (this._data.cart.items.byId.has(id)) {
+        isAddedToCart = true;
+      }
+
+      let className = 'product';
+      if(isAddedToCart){
+        className = className.concat(' active');
+      }
+
+      return `
+        <div class="${className}">
+          <div class="product__header">
+            <div class="product__img">
+              <img
+                loading="lazy"
+                src="${product.image.thumbnail}" 
+                alt="Image of ${product.name}" 
+                srcset="${product.srcset}"
+              >
+            </div>
+            ${this._generateAddToCartButton(isAddedToCart, id)}
+          </div>
+          <div class="product__data">
+            <div class="product__category">${product.category}</div>
+            <div class="product__name">${product.name}</div>
+            <div class="product__price">${product.price}</div>
+          </div>
+        </div>
+    `});
 
     return markup.join('');
   }

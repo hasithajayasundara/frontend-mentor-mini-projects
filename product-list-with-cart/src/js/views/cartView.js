@@ -1,20 +1,9 @@
-class CartView{
-  #parent = document.querySelector('.cart');
-  #data;
+import View from './view';
 
-  render(data){
-    this.#data = data;;
-    const markup = this.#generateMarkup?.();
-    this.#clear();
-    this.#parent.insertAdjacentHTML('afterbegin', markup);
+class CartView extends View{
+  _parent = document.querySelector('.cart');
 
-  }
-
-  #clear() {
-    this.#parent.innerHTML = "";
-  }
-
-  #generateMarkup() {
+  _generateMarkup() {
     const markup = `
       <div class="card__container">
         <h3 class="cart__header"> Your cart (0) </h3>
