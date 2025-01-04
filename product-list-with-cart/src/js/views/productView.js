@@ -13,8 +13,8 @@ class ProductView extends View {
   _parent = document.querySelector('.products');
 
   render(data) {
+    this._loading = false;
     super.render(data);
-    this._parent.classList.remove('loading');
   }
 
   addHandlerRender(handler) {
@@ -85,6 +85,10 @@ class ProductView extends View {
         Add to cart
       </button>
     `
+  }
+
+  _generateLoadingMarkup(){
+    return Array.from({ length: 9 }).map(() => `<div class="product"></div>`).join('')
   }
 
   _generateMarkup() {

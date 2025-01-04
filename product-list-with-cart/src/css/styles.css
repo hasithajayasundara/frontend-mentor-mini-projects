@@ -23,7 +23,7 @@
   --fs-body: 1.5rem;
 }
 
-@media(min-width:1000px) {
+@media(min-width:1024px) {
   :root {
     --fs-h1: 3rem;
     --fs-body: 1.8rem;
@@ -101,7 +101,7 @@ img {
   opacity: 0.6;
 }
 
-:focus{
+:focus {
   outline: 3px solid var(--clr-primary);
 }
 
@@ -111,24 +111,11 @@ h1 {
   font-size: var(--fs-h1);
 }
 
-/* Loader */
+/* Shimmer animation */
 
-.loader {
-  border: 0.6rem solid var(--clr-primary-dark);
-  border-top: 0.6rem solid var(--clr-primary);
-  border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
+@keyframes shimmer {
+  to {
+    background-position-x: 0%
   }
 }
 
@@ -137,12 +124,7 @@ h1 {
   display: grid;
   justify-items: center;
   gap: 2rem;
-}
-
-.products.loading {
   width: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 @media(min-width: 600px) {
@@ -151,7 +133,7 @@ h1 {
   }
 }
 
-@media(min-width: 1024px) {
+@media(min-width: 1240px) {
   .products {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -162,8 +144,16 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 10rem;
+  width: 100%;
+  min-height: 20rem;
   max-width: 40rem;
+}
+
+.products.loading .product {
+  background: linear-gradient(-45deg, #eee 40%, #fafafa 50%, #eee 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: shimmer 1s infinite linear;
 }
 
 .product__header {
@@ -192,6 +182,9 @@ h1 {
 
 .product__name {
   font-weight: var(--fw-bold);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .product__category {
@@ -255,25 +248,28 @@ h1 {
 
 /* Cart */
 .cart {
+  width: 100%;
   background: #fff;
+  padding: 2em;
 }
 
-@media (min-width: 1000px){
-  .cart{
-    min-width: 40rem;
-  }
+.cart.loading {
+  background: linear-gradient(-45deg, #eee 40%, #fafafa 50%, #eee 60%);
+  background-size: 300%;
+  background-position-x: 100%;
+  animation: shimmer 1s infinite linear;
+}
 
-  .cart.loading{
-    min-width: 0;
+@media (min-width: 1000px) {
+  .cart {
+    max-width: fit-content;
+    min-width: 40rem;
+    min-height: 40rem;
   }
 }
 
 .cart__header {
   color: var(--clr-secondary);
-}
-
-.card__container {
-  padding: 1em;
 }
 
 .cart__content {

@@ -14,8 +14,9 @@ export const getProducts = async () => new Promise((resolve) => {
 
 const controlProducts = async () => {
   try {
-    // Render spinner
-    productView.renderSpinner();
+    // Render loader
+    productView.setIsLoading();
+    cartView.setIsLoading();
 
     // Get products(desserts)
     await getProducts();

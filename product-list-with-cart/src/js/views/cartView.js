@@ -65,37 +65,33 @@ class CartView extends View {
   _generateMarkup() {
     if (this._data.cart.totalItems === 0) {
       return `
-        <div class="card__container">
-          <h3 class="cart__header"> Your cart (0) </h3>
-          <div class="cart__content">
-            <img src="${emptyCartImage}" alt="Empty card image">
-            <p class="empty-cart__text">Your added items will appear here</p>
-          </div>
+        <h3 class="cart__header"> Your cart (0) </h3>
+        <div class="cart__content">
+          <img src="${emptyCartImage}" alt="Empty card image">
+          <p class="empty-cart__text">Your added items will appear here</p>
         </div>
       `
     }
 
     return `
-      <div class="card__container">
-        <h3 class="cart__header"> Your cart (${this._data.cart.totalItems}) </h3>
-        <div class="cart__content">
-          <ul class="cart__list">
-            ${this._generateCartItems()}
-          </ul>
-          <div class="cart-total">
-            <span>Order total</span>
-            <span>${formatCurrency(this._data.cart.totalPrice)}</span>
-          </div>
+      <h3 class="cart__header"> Your cart (${this._data.cart.totalItems}) </h3>
+      <div class="cart__content">
+        <ul class="cart__list">
+          ${this._generateCartItems()}
+        </ul>
+        <div class="cart-total">
+          <span>Order total</span>
+          <span>${formatCurrency(this._data.cart.totalPrice)}</span>
         </div>
-        <div class="delivery__message">
-            <img src="${iconCarbonNeutral}" alt="Icon of a tree">
-            This is a&nbsp;<span>carbon neutral</span>&nbsp;delivery
-        </div>
-        <div class="confirm-order">
-          <button class="btn confirm-order__btn active"> 
-            Confirm Order
-          </button>
-        </div>
+      </div>
+      <div class="delivery__message">
+          <img src="${iconCarbonNeutral}" alt="Icon of a tree">
+          This is a&nbsp;<span>carbon neutral</span>&nbsp;delivery
+      </div>
+      <div class="confirm-order">
+        <button class="btn confirm-order__btn active"> 
+          Confirm Order
+        </button>
       </div>
     `;
   }
