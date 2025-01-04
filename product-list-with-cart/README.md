@@ -43,3 +43,4 @@ I chose to implement the solution using vanilla JavaScript and the MVC pattern t
 - Lazy load images
 - Improve hover, focus... styles in interactive elements
 - a11y improvements
+- Improve DOM update
