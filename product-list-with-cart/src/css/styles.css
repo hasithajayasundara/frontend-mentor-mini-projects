@@ -101,6 +101,10 @@ img {
   opacity: 0.6;
 }
 
+:focus{
+  outline: 3px solid var(--clr-primary);
+}
+
 /* Typography */
 
 h1 {
