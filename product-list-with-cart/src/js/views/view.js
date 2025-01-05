@@ -1,3 +1,5 @@
+import DOMPurify from 'isomorphic-dompurify';
+
 class View {
   _data;
 
@@ -9,7 +11,7 @@ class View {
     this._parent.classList.add('loading');
     const markup = this._generateLoadingMarkup?.();
     this._clear();
-    this._parent.insertAdjacentHTML('afterbegin', markup ?? '');
+    this._parent.insertAdjacentHTML('afterbegin', DOMPurify.sanitize(markup ?? ''));
   }
 
   render(data) {
@@ -17,7 +19,7 @@ class View {
     const markup = this._generateMarkup?.();
     this._clear();
     this._parent.classList.remove('loading');
-    this._parent.insertAdjacentHTML('afterbegin', markup);
+    this._parent.insertAdjacentHTML('afterbegin', DOMPurify.sanitize(markup ?? ''));
   }
 
   renderSpinner() {

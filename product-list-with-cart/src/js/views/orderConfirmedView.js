@@ -68,7 +68,7 @@ class OrderConfirmedView extends View {
       <ul class="order-confirmed__list">
         ${this._generateCartItems()}
       </ul>
-      <button class="btn active start-order__btn" autofocus>
+      <button class="btn active start-order__btn">
         Start new order 
       </button>
     `
