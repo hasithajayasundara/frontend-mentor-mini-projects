@@ -1,82 +1,135 @@
-/* Box sizing rules */
 *,
-*::before,
-*::after {
+*::after,
+*::before {
   box-sizing: border-box;
-}
-
-* {
   margin: 0;
   padding: 0;
-  font-size: inherit;
+  font: inherit;
 }
 
-/* Prevent font size inflation */
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-}
-
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
-}
-
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  line-height: 1.5;
-}
-
-/* Set shorter line heights on headings and interactive elements */
-h1,
-h2,
-h3,
-h4,
-button,
-input,
-label {
-  line-height: 1.1;
-}
-
-/* Balance text wrapping on headings */
-h1,
-h2,
-h3,
-h4 {
-  text-wrap: balance;
-}
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-  color: currentColor;
-}
-
-/* Make images easier to work with */
 img,
-picture {
-  max-width: 100%;
+svg {
   display: block;
+  max-width: 100%;
 }
 
-/* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font-family: inherit;
-  font-size: inherit;
+:root {
+  --clr-accent-100: hsl(13, 100%, 96%);
+  --clr-accent-400: hsl(12, 88%, 59%);
+  --clr-primary-400: hsl(228, 39%, 23%);
+  --clr-neutral-100: hsl(233, 12%, 13%);
+  --clr-neutral-900: hsl(0, 0%, 98%);
+
+  --ff-primary: 'Be Vietnam Pro', sans-serif;
+  --ff-body: var(var(--ff-primary));
+  --ff-heading: var(var(--ff-primary));
+
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-700: 700;
+
+  --fs-300: 1.3rem;
+  --fs-400: 1.4rem;
+  --fs-500: 1.5rem;
+  --fs-600: 1.6rem;
+  --fs-700: 3rem;
+  --fs-800: 4rem;
+  --fs-900: 5.6rem;
+
+  --fs-body: var(--fs-400);
+  --fs-primary-heading: var(--fs-800);
+  --fs-secondary-heading: var(--fs-700);
+  --fs-nav: var(--fs-500);
+  --fs-button: var(--fs-300);
 }
 
-/* Make sure textareas without a rows attribute are not tiny */
-textarea:not([rows]) {
-  min-height: 10em;
+@media(min-width: 50em) {
+  :root {
+    --fs-body: var(--fs-500);
+    --fs-nav: var(--fs-300);
+    --fs-primary-heading: var(--fs-900);
+    --fs-secondary-heading: var(--fs-800);
+  }
 }
 
-/* Anything that has been anchored to should have extra scroll margin */
-:target {
-  scroll-margin-block: 5ex;
+html {
+  font-size: 62.5%;
 }
+
+/* Utility classes */
+.text-primary-400 {
+  color: var(--clr-primary-400);
+}
+
+.text-accent-400 {
+  color: var(--clr-accent-400);
+}
+
+.text-accent-100 {
+  color: var(--clr-accent-100);
+}
+
+.text-neutral-100 {
+  color: var(--clr-neutral-100);
+}
+
+.text-neutral-900 {
+  color: var(--clr-neutral-900);
+}
+
+.bg-primary-400 {
+  background-color: var(--clr-primary-400);
+}
+
+.bg-accent-400 {
+  background-color: var(--clr-accent-400);
+}
+
+.bg-accent-100 {
+  background-color: var(--clr-accent-100);
+}
+
+.bg-neutral-100 {
+  background-color: var(--clr-neutral-100);
+}
+
+.bg-neutral-900 {
+  background-color: var(--clr-neutral-900);
+}
+
+.fw-bold {
+  font-weight: var(--fw-700);
+}
+
+.fw-semi-bold {
+  font-weight: var(--fw-500);
+}
+
+.fw-regular {
+  font-weight: var(--fw-400);
+}
+
+.fs-primary-heading{
+  font-size: var(--fs-primary-heading);
+}
+
+.fs-secondary-heading{
+  font-size: var(--fs-secondary-heading);
+}
+
+.fs-300{
+  font-size: var(--fs-300);
+}
+
+.fs-400{
+  font-size: var(--fs-400);
+}
+
+.fs-500{
+  font-size: var(--fs-500);
+}
+
+.fs-600{
+  font-size: var(--fs-600);
+}
+
