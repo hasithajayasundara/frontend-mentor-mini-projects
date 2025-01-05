@@ -9,7 +9,7 @@ class View {
     this._parent.classList.add('loading');
     const markup = this._generateLoadingMarkup?.();
     this._clear();
-    this._parent.insertAdjacentHTML('afterbegin', markup);
+    this._parent.insertAdjacentHTML('afterbegin', markup ?? '');
   }
 
   render(data) {
