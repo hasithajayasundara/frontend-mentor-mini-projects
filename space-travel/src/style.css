@@ -4,7 +4,7 @@
   --clr-light: 231 77% 90%;
   --clr-white: 0 9% 100%;
 
-  --fs-900: 5rem;
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
   --fs-600: 1rem;
@@ -45,6 +45,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
   margin: 0;
   padding: 0;
   font: inherit;
@@ -79,6 +83,8 @@ body {
   background-color: hsl(var(--clr-dark));
   display: grid;
   grid-template-rows: min-content 1fr;
+  background-size: cover;
+  background-position: bottom center;
 }
 
 /* A elements that don't have a class get default styles */
@@ -121,6 +127,10 @@ svg {
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
 /*🦉*/
 .flow>*:where(:not(:first-child)) {
   margin-top: 1rem;
@@ -134,14 +144,23 @@ svg {
 }
 
 .grid-container {
+  text-align: center;
   display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+}
+
+.grid-container * {
+  max-width: 50ch;
 }
 
 @media (min-width: 45em) {
   .grid-container {
+    text-align: left;
     column-gap: var(--container-gap, 2rem);
     grid-template-columns:
-      minmax(2em, 1fr) minmax(0, 40rem) minmax(0, 40rem) minmax(2em, 1fr);
+      minmax(2em, 1fr) repeat(2, minmax(0, 40rem)) minmax(2em, 1fr);
+
   }
 
   .grid-container>*:first-child {
@@ -150,6 +169,11 @@ svg {
 
   .grid-container>*:last-child {
     grid-column: 3;
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
   }
 }
 
@@ -280,6 +304,7 @@ svg {
   aspect-ratio: 1;
   text-decoration: none;
   border-radius: 50%;
+  font-size: 2rem;
 }
 
 .large-button::after {
@@ -378,5 +403,23 @@ svg {
   &[aria-selected="true"] {
     color: hsl(var(--clr-dark));
     background-color: hsl(var(--clr-white));
+  }
+}
+
+/* Home */
+.home {
+  background-image: url('../images/home/background-home-mobile.jpg');
+}
+
+@media(min-width: 35em) {
+  .home {
+    background-position: center center;
+    background-image: url('../images/home/background-home-tablet.jpg');
+  }
+}
+
+@media(min-width: 45em) {
+  .home {
+    background-image: url('../images/home/background-home-desktop.jpg');
   }
 }
