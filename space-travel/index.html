@@ -37,16 +37,23 @@
         </a>
       </div>
 
-      <div>
+      <div class="flow" style="margin-bottom: 50vh; --flow-space: 4rem">
         <!-- Tabs -->
-
+        <div class="tab-list underline-indicators flex ">
+          <button aria-selected="true" class="uppercase text-accent letter-spacing-2 bg-dark ff-sans-cond">Moon</button>
+          <button aria-selected="false"
+            class="uppercase text-accent letter-spacing-2 bg-dark ff-sans-cond">Mars</button>
+          <button aria-selected="false"
+            class="uppercase text-accent letter-spacing-2 bg-dark ff-sans-cond">Europa</button>
+        </div>
 
         <!-- Dots -->
-
-
-        <!-- Numbers -->
+        <div class="dot-indicators flex">
+          <button aria-selected="true"><span class="sr-only">Slide title</span></button>
+          <button aria-selected="false"><span class="sr-only">Slide title</span></button>
+          <button aria-selected="false"><span class="sr-only">Slide title</span></button>
+        </div>
       </div>
-    </div>
 
   </section>
   <script type="module" src="/src/main.ts"></script>
