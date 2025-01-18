@@ -255,3 +255,34 @@ svg {
   transform: scale(1.5);
   opacity: 1;
 }
+
+.primary-navigation {
+  --gap: 8rem;
+  --underline-gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  a {
+    text-decoration: none;
+
+    >span {
+      font-weight: 700;
+      margin-right: 0.5em;
+    }
+  }
+}
+
+.underline-indicators>* {
+  border-bottom: 0.2rem solid hsl(var(--clr-white)/0);
+  padding: var(--underline-gap, 1rem) 0;
+
+  &:hover,
+  &:focus {
+    border-color: hsl(var(--clr-white)/0.5);
+  }
+}
+
+.underline-indicators>.active {
+  border-color: hsl(var(--clr-white)/1);
+}
