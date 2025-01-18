@@ -26,7 +26,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Manage landing page](./Manage%20landing%20page.png)
+![Manage landing page](./manage-landing-page.png)
 
 ### Links
 
