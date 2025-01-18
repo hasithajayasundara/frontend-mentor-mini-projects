@@ -24,7 +24,8 @@ html:focus-within {
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 /* Set core body defaults */
@@ -213,12 +214,17 @@ input:where([type="email"], [type="text"]) {
 }
 
 @media (max-width: 50em) {
+  .primary-header[data-overlay] {
+    position: relative;
+    z-index: 1000;
+  }
+
   .primary-navigation {
     display: none;
     position: fixed;
     padding: var(--size-700);
     max-width: 25rem;
-    margin-left: auto;
+    margin-inline: auto;
     inset: 7rem var(--size-400) auto;
     background: var(--clr-neutral-100);
     border-radius: var(--size-100);
@@ -229,7 +235,7 @@ input:where([type="email"], [type="text"]) {
     content: "";
     position: fixed;
     inset: 0;
-    background-image: linear-gradient(rgb(0 0 0/0), rgb(0 0 0/0.8));
+    background-image: linear-gradient(rgb(0 0 0/0.1), rgb(0 0 0/0.5));
   }
 
   .nav-list {
@@ -257,6 +263,14 @@ input:where([type="email"], [type="text"]) {
   }
 
   .mobile-nav-toggle .icon-close {
+    display: none;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] .icon-close {
+    display: block;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] .icon-hamburger {
     display: none;
   }
 }
@@ -510,15 +524,40 @@ input:where([type="email"], [type="text"]) {
   background-position: bottom left;
 }
 
-@media(max-width: 50em) {
+@media (max-width: 50em) {
   .hero-image {
     order: -1;
   }
 }
 
-@media(min-width: 50em) {
-  .hero-image::before{
+@media (min-width: 50em) {
+  .hero-image::before {
     width: 45%;
+  }
+}
+
+/*Sales*/
+.sales-blog {
+  position: relative;
+}
+
+.sales-blog::before {
+  content: url("../images/bg-tablet-pattern.svg");
+  zoom: 40%;
+  position: absolute;
+  z-index: -1;
+  left: 70%;
+  bottom: 140%;
+  width: 100px;
+}
+
+@media (min-width: 50em) {
+  .sales-blog::before {
+    zoom: 70%;
+    z-index: -1;
+    left: -650px;
+    top: 40%;
+    width: 100px;
   }
 }
 
@@ -623,7 +662,7 @@ input:where([type="email"], [type="text"]) {
   margin-block-end: var(--size-700);
 }
 
-.max-auto{
+.max-auto {
   margin-inline: auto;
 }
 
