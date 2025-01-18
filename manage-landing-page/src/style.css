@@ -307,6 +307,10 @@ input:where([type="email"], [type="text"]) {
   align-content: space-between;
 }
 
+.primary-footer-copyright {
+  grid-column: 3/-1;
+}
+
 .primary-footer form {
   display: flex;
   gap: var(--size-200);
@@ -319,7 +323,7 @@ input:where([type="email"], [type="text"]) {
 }
 
 @media (max-width: 50em) {
-  .primary-footer-wrapper>* {
+  .primary-footer-wrapper > * {
     margin-inline: auto;
   }
 
@@ -327,6 +331,11 @@ input:where([type="email"], [type="text"]) {
     align-items: flex-start;
     justify-content: space-between;
     gap: var(--size-700);
+  }
+
+  .primary-footer-copyright {
+    grid-row: -1;
+    grid-column: 1/-1;
   }
 }
 
@@ -477,20 +486,20 @@ input:where([type="email"], [type="text"]) {
   margin-block: var(--size-700);
 }
 
-.slider>* {
+.slider > * {
   position: relative;
   flex: 0 0 auto;
   width: max(40%, 100vw);
 }
 
 @media (min-width: 30em) {
-  .slider>* {
+  .slider > * {
     width: 50%;
   }
 }
 
 @media (min-width: 50em) {
-  .slider>* {
+  .slider > * {
     width: 35%;
   }
 }
@@ -725,7 +734,7 @@ input:where([type="email"], [type="text"]) {
   border: 0 !important;
 }
 
-.flow *+* {
+.flow * + * {
   margin-top: var(--flow-spacer, 4em);
 }
 
