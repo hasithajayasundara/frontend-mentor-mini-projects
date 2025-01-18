@@ -4,18 +4,40 @@
   --clr-light: 231 77% 90%;
   --clr-white: 0 9% 100%;
 
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
+  --fs-900: 5rem;
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
 
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
+}
+
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    --fs-900: 9.375rem;
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+  }
 }
 
 /*Resets*/
@@ -55,6 +77,8 @@ body {
   font-weight: 400;
   color: hsl(var(--clr-white));
   background-color: hsl(var(--clr-dark));
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
 
 /* A elements that don't have a class get default styles */
@@ -107,6 +131,26 @@ svg {
   margin-inline: auto;
   padding-inline: 2em;
   max-width: 80rem;
+}
+
+.grid-container {
+  display: grid;
+}
+
+@media (min-width: 45em) {
+  .grid-container {
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns:
+      minmax(2em, 1fr) minmax(0, 40rem) minmax(0, 40rem) minmax(2em, 1fr);
+  }
+
+  .grid-container>*:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container>*:last-child {
+    grid-column: 3;
+  }
 }
 
 .sr-only {
@@ -230,7 +274,7 @@ svg {
 .large-button {
   position: relative;
   z-index: 1;
-  display: grid;
+  display: inline-grid;
   place-items: center;
   padding: 0 2em;
   aspect-ratio: 1;
@@ -313,13 +357,18 @@ svg {
   }
 }
 
+.numbered-indicators {
+  flex-direction: column;
+}
+
 .numbered-indicators>* {
   cursor: pointer;
   border: 0;
   border-radius: 50%;
-  padding: 0.5em 1em;
+  padding: 0.5em;
   aspect-ratio: 1;
   background-color: hsl(var(--clr-white) / 0.25);
+  width: fit-content;
 
   &:hover,
   &:focus {
