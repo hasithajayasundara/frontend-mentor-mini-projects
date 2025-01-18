@@ -166,6 +166,12 @@ p[data-width="wide"] {
   color: var(--clr-accent-300);
 }
 
+input:where([type="email"], [type="text"]) {
+  border-radius: 100vw;
+  border: 0;
+  padding: var(--size-300) var(--size-400);
+}
+
 /* Navigation */
 
 .primary-header {
@@ -282,6 +288,13 @@ p[data-width="wide"] {
 
 .primary-footer-form {
   grid-area: form;
+  display: grid;
+  align-content: space-between;
+}
+
+.primary-footer form {
+  display: flex;
+  gap: var(--size-200);
 }
 
 @media(min-width: 50em) {
@@ -366,6 +379,72 @@ p[data-width="wide"] {
   opacity: 0.1;
 }
 
+/* Numbered list */
+.numbered-items {
+  counter-reset: count;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.numbered-items li {
+  counter-increment: count;
+}
+
+.numbered-items div {
+  display: grid;
+  position: relative;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+  column-gap: var(--size-300);
+}
+
+.numbered-items .numbered-items-title {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  line-height: 1;
+}
+
+.numbered-items .numbered-items-body {
+  grid-column: 1/-1;
+}
+
+.numbered-items div::before,
+.numbered-items div::after {
+  height: 40px;
+}
+
+.numbered-items div::before {
+  content: "0" counter(count);
+  color: var(--clr-neutral-100);
+  display: flex;
+  align-items: center;
+  font-weight: var(--fw-700);
+  background-color: var(--clr-accent-400);
+  padding: 0 var(--size-500);
+  border-radius: 100vw;
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+
+@media(max-width: 30em) {
+  .numbered-items div::after {
+    display: block;
+    content: "";
+    z-index: -1;
+    border-radius: 100vw 0 0 100vw;
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    background-color: var(--clr-accent-100);
+    box-shadow: 5em 0 0 var(--clr-accent-100);
+  }
+}
+
+@media(min-width: 30em) {
+  .numbered-items .numbered-items-body {
+    grid-column: 2/-1;
+  }
+}
+
 /* Utility classes */
 .text-primary-400 {
   color: var(--clr-primary-400);
@@ -385,6 +464,24 @@ p[data-width="wide"] {
 
 .text-neutral-900 {
   color: var(--clr-neutral-900);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center p {
+  margin-inline: auto;
+}
+
+@media(max-width: 50em) {
+  .text-center-sm-only {
+    text-align: center;
+  }
+
+  .text-center-sm-only p {
+    margin-inline: auto;
+  }
 }
 
 .bg-primary-400 {
@@ -443,6 +540,10 @@ p[data-width="wide"] {
 
 .fs-600 {
   font-size: var(--fs-600);
+}
+
+.margin-bottom-700{
+  margin-block-end: var(--size-700);
 }
 
 .padding-block-900 {
