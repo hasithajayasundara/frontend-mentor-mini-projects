@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import moonImage from '../../images/destination/image-moon.webp';
 import { destinations } from "./config";
 
 const Destination = () => {
@@ -17,8 +16,8 @@ const Destination = () => {
         Pick your destination
       </h1>
       <Image
-        src={moonImage}
-        alt="The moon"
+        src={selectedDestination.images.webp}
+        alt={selectedDestination.name}
         className="destination-image"
       />
       <div className="tab-list underline-indicators flex">

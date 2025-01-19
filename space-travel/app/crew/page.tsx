@@ -35,7 +35,7 @@ const Crew = () => {
         </p>
       </section>
       <Image
-        src={selectedCrewMember.images.png}
+        src={selectedCrewMember.images.webp}
         alt="Douglas Hurley"
         className="crew-image"
       />
