@@ -14,17 +14,17 @@
 
   .home {
     background-position: center center;
-    background-image: url('../../images/home/background-home-tablet.jpg');
+    background-image: url('../images/home/background-home-tablet.jpg');
   }
 
   .destination {
     background-position: center center;
-    background-image: url('../../images/destination/background-destination-tablet.jpg');
+    background-image: url('../images/destination/background-destination-tablet.jpg');
   }
 
   .technology {
     background-position: center center;
-    background-image: url('../../images/technology/background-destination-tablet.jpg');
+    background-image: url('../images/technology/background-technology-tablet.jpg');
   }
 
   .destination-meta {
@@ -45,6 +45,16 @@
       'tabs'
       'image';
   }
+
+  .grid-container--technology {
+    .numbered-title {
+      padding-inline: 1rem;
+    }
+
+    .technology-body{
+      place-items: start;
+    }
+  }
 }
 
 @media (min-width: 60em) {
@@ -64,11 +74,11 @@
 
   }
 
-  .grid-container>*:first-child {
+  .grid-container--home>*:first-child {
     grid-column: 2;
   }
 
-  .grid-container>*:last-child {
+  .grid-container--home>*:last-child {
     grid-column: 3;
   }
 
@@ -102,15 +112,20 @@
   }
 
   .home {
-    background-image: url('../../images/home/background-home-desktop.jpg');
+    background-image: url('../images/home/background-home-desktop.jpg');
   }
 
   .destination {
-    background-image: url('../../images/destination/background-destination-desktop.jpg');
+    background-image: url('../images/destination/background-destination-desktop.jpg');
   }
 
+  .crew {
+    background-image: url('../images/crew/background-crew-desktop.jpg');
+  }
+
+
   .technology {
-    background-image: url('../../images/technology/background-technology-desktop.jpg');
+    background-image: url('../images/technology/background-technology-desktop.jpg');
   }
 
   .grid-container--destination {
@@ -121,8 +136,8 @@
       '. image body .';
   }
 
-  .grid-container--destination,
-  .grid-container--crew>img {
+  .grid-container--destination>.destination-image,
+  .grid-container--crew>.crew_image {
     max-width: 90%;
   }
 
@@ -142,8 +157,19 @@
     justify-self: start;
   }
 
-  .grid-container--crew>img {
+  .grid-container--crew>.crew-image {
     justify-self: end;
+  }
+
+  .grid-container--technology {
+    grid-template-areas:
+      '. title title .'
+      '. body image image'
+      '. tabs image image';
+
+    .numbered-indicators{
+      align-self: end;
+    }
   }
 }
 
@@ -180,11 +206,11 @@
     transition: background-image 500ms ease-out;
 
     &[aria-expanded="false"] {
-      background-image: url('../../images/shared/icon-hamburger.svg');
+      background-image: url('../images/shared/icon-hamburger.svg');
     }
 
     &[aria-expanded="true"] {
-      background-image: url('../../images/shared/icon-close.svg');
+      background-image: url('../images/shared/icon-close.svg');
     }
 
     :focus-visible {
