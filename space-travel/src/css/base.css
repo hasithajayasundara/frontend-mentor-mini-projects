@@ -112,6 +112,15 @@ body {
   }
 }
 
-.crew-body{
+.crew-body {
   flex-direction: column;
-} 
+
+  h2 {
+    color: hsl(var(--clr-light)/0.5);
+  }
+}
+
+/* Technology */
+.technology {
+  background-image: url('../../images/technology/background-technology-mobile.jpg');
+}

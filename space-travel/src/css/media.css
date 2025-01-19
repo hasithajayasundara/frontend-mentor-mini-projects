@@ -22,6 +22,11 @@
     background-image: url('../../images/destination/background-destination-tablet.jpg');
   }
 
+  .technology {
+    background-position: center center;
+    background-image: url('../../images/technology/background-destination-tablet.jpg');
+  }
+
   .destination-meta {
     flex-direction: row;
     justify-content: space-evenly;
@@ -102,6 +107,10 @@
 
   .destination {
     background-image: url('../../images/destination/background-destination-desktop.jpg');
+  }
+
+  .technology {
+    background-image: url('../../images/technology/background-technology-desktop.jpg');
   }
 
   .grid-container--destination {
