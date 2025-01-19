@@ -69,6 +69,10 @@
   background-color: hsl(var(--clr-dark));
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-light {
   background-color: hsl(var(--clr-light));
 }

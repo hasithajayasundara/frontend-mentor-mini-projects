@@ -50,6 +50,10 @@ body {
 }
 
 /* Destination */
+.destination {
+  background-image: url('../../images/destination/background-destination-mobile.jpg');
+}
+
 .grid-container--destination {
   --flow-space: 2rem;
   grid-template-areas:
@@ -73,6 +77,7 @@ body {
 }
 
 .destination-meta {
+  align-items: center;
   border-top: 1px solid hsl(var(--clr-light));
   flex-direction: column;
   padding-top: 2.5rem;
