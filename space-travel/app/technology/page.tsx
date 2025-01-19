@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from "react";
-import Image from "next/image";
 
 import { technology } from "./config";
+import { DynamicImage } from "@/components/dynamic-image";
 
 const Technology = () => {
   const [selected, setSelected] = useState(0);
@@ -14,8 +14,8 @@ const Technology = () => {
       <h1 className="numbered-title">
         <span aria-hidden="true">03</span>Space launch 101
       </h1>
-      <Image
-        src={selectedTechnology.images.portrait}
+      <DynamicImage
+        images={selectedTechnology.images}
         alt={selectedTechnology.name}
         className="technology-image"
       />

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,6 +10,8 @@ import { navConfig } from "../../utils/nav-config";
 
 export const Navigation = () => {
   const pathName = usePathname();
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
   return (
     <header className="primary-header flex">
       <div>
@@ -18,11 +21,16 @@ export const Navigation = () => {
           className="logo"
         />
       </div>
-      <button className="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+      <button
+        className="mobile-nav-toggle"
+        aria-controls="primary-navigation"
+        aria-expanded={isMobileNavOpen}
+        onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
+      >
         <span className="sr-only">Menu</span>
       </button>
       <nav>
-        <ul id="primary-navigation" className="underline-indicators flex primary-navigation">
+        <ul id="primary-navigation" className="underline-indicators flex primary-navigation" data-visible={isMobileNavOpen}>
           {navConfig.map((item, idx) => (
             <li key={item.key} className={`${item.path === pathName ? 'active' : ''}`}>
               <Link className="uppercase text-white letter-spacing-2" href={item.path}>
