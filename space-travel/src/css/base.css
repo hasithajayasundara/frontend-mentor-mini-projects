@@ -83,3 +83,35 @@ body {
   padding-top: 2.5rem;
   margin-top: 2.5rem;
 }
+
+/* Crew */
+.crew {
+  background-image: url('../../images/crew/background-crew-mobile.jpg');
+}
+
+.grid-container--crew {
+  --flow-space: 2rem;
+  grid-template-areas:
+    'title'
+    'image'
+    'tabs'
+    'body';
+
+  >img {
+    grid-area: image;
+    max-width: 60%;
+    border-bottom: 1px solid hsl(var(--clr-light)/0.01);
+  }
+
+  >.dot-indicators {
+    grid-area: tabs;
+  }
+
+  >.crew-body {
+    grid-area: body;
+  }
+}
+
+.crew-body{
+  flex-direction: column;
+} 

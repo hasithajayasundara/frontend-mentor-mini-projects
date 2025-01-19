@@ -33,7 +33,7 @@
   padding-bottom: 4rem;
 }
 
-.grid-container * {
+.grid-container p:not([class]) {
   max-width: 50ch;
 }
 
@@ -209,10 +209,14 @@
 }
 
 .underline-indicators>* {
-  padding: var(--underline-gap, 1rem) 0;
   border: 0;
   cursor: pointer;
   border-bottom: 0.2rem solid hsl(var(--clr-white)/0);
+
+  >a {
+    display: inline-block;
+    padding: var(--underline-gap, 1rem) 0;
+  }
 
   &:hover,
   &:focus {

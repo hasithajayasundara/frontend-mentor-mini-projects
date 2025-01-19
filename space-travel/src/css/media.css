@@ -31,6 +31,15 @@
     justify-self: start;
     margin-top: 2rem;
   }
+
+  .grid-container--crew {
+    padding-bottom: 0;
+    grid-template-areas:
+      'title'
+      'body'
+      'tabs'
+      'image';
+  }
 }
 
 @media (min-width: 60em) {
@@ -101,15 +110,31 @@
       '. title title .'
       '. image tabs .'
       '. image body .';
+  }
 
-    >img {
-      max-width: 90%;
-    }
+  .grid-container--destination,
+  .grid-container--crew>img {
+    max-width: 90%;
   }
 
   .destination-meta {
     --gap: 6rem;
     justify-content: start;
+  }
+
+  .grid-container--crew {
+    grid-template-areas:
+      '. title title .'
+      '. body image .'
+      '. tabs image .';
+  }
+
+  .grid-container--crew>.dot-indicators {
+    justify-self: start;
+  }
+
+  .grid-container--crew>img {
+    justify-self: end;
   }
 }
 
@@ -146,11 +171,11 @@
     transition: background-image 500ms ease-out;
 
     &[aria-expanded="false"] {
-      background-image: url('../images/shared/icon-hamburger.svg');
+      background-image: url('../../images/shared/icon-hamburger.svg');
     }
 
     &[aria-expanded="true"] {
-      background-image: url('../images/shared/icon-close.svg');
+      background-image: url('../../images/shared/icon-close.svg');
     }
 
     :focus-visible {
