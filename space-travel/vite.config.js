@@ -6,9 +6,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        destination: resolve(__dirname, 'nested/destination.html'),
-        crew: resolve(__dirname, 'nested/crew.html'),
-        technology: resolve(__dirname, 'nested/technology.html'),
+        destination: resolve(__dirname, 'destination.html'),
+        crew: resolve(__dirname, 'crew.html'),
+        technology: resolve(__dirname, 'technology.html'),
       },
     },
   },
