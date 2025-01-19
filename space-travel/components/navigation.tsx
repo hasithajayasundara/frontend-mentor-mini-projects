@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import logo from '../../images/shared/logo.svg';
-import { navConfig } from "../../utils/nav-config";
+import logo from '../images/shared/logo.svg';
+import { navConfig } from "../utils/nav-config";
 
 export const Navigation = () => {
   const pathName = usePathname();
@@ -32,7 +32,7 @@ export const Navigation = () => {
       <nav>
         <ul id="primary-navigation" className="underline-indicators flex primary-navigation" data-visible={isMobileNavOpen}>
           {navConfig.map((item, idx) => (
-            <li key={item.key} className={`${item.path === pathName ? 'active' : ''}`}>
+            <li key={item.key} className={`${item.path === pathName ? 'active' : ''}`} onClick={() => setIsMobileNavOpen(false)}>
               <Link className="uppercase text-white letter-spacing-2" href={item.path}>
                 <span aria-hidden="true">
                   {`0${idx}`}

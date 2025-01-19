@@ -19,6 +19,7 @@ const Destination = () => {
         src={selectedDestination.images.webp}
         alt={selectedDestination.name}
         className="destination-image"
+        sizes="(max-width: 560px) 100%, (max-width: 960px) 50vw, 33vw"
       />
       <div className="tab-list underline-indicators flex">
         {destinations.map((item, idx) => (

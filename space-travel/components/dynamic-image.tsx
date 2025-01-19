@@ -41,7 +41,7 @@ export const DynamicImage = ({ images, alt, className }: Props) => {
       alt={alt}
       className={className}
       src={showLandscape ? images.landscape : images.portrait}
-      sizes="(max-width: 560px) 100vw, (max-width: 960px) 50vw, 33vw"
+      sizes="(max-width: 560px) 100%, (max-width: 960px) 50vw, 33vw"
     />
   );
 };
