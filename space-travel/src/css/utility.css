@@ -1,83 +1,3 @@
-/*Custom properties*/
-:root {
-  --clr-dark: 230 35% 7%;
-  --clr-light: 231 77% 90%;
-  --clr-white: 0 9% 100%;
-
-  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
-  --fs-800: 3.5rem;
-  --fs-700: 1.5rem;
-  --fs-600: 1rem;
-  --fs-500: 1.75rem;
-  --fs-400: 0.9375rem;
-  --fs-300: 1rem;
-  --fs-200: 0.875rem;
-
-  --ff-serif: "Bellefair", serif;
-  --ff-sans-cond: "Barlow Condensed", sans-serif;
-  --ff-sans-normal: "Barlow", sans-serif;
-}
-
-/*Resets*/
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default margin */
-* {
-  margin: 0;
-  padding: 0;
-  font: inherit;
-}
-
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
-  list-style: none;
-}
-
-/* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-html,
-body {
-  min-height: 100%;
-  overflow-x: hidden;
-}
-
-/* Set core body defaults */
-body {
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-  min-height: 100vh;
-  font-size: var(--fs-400);
-  font-family: var(--ff-sans-normal);
-  font-weight: 400;
-  color: hsl(var(--clr-white));
-  background-color: hsl(var(--clr-dark));
-  display: grid;
-  grid-template-rows: min-content 1fr;
-  background-size: cover;
-  background-position: bottom center;
-}
-
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* Make images easier to work with */
-img,
-picture,
-svg {
-  max-width: 100%;
-  display: block;
-}
-
 /* Utility classes */
 .flex {
   display: flex;
@@ -110,6 +30,7 @@ svg {
   display: grid;
   place-items: center;
   padding-inline: 1rem;
+  padding-bottom: 4rem;
 }
 
 .grid-container * {
@@ -248,6 +169,10 @@ svg {
   }
 }
 
+.numbered-title {
+  grid-area: title;
+}
+
 /* Components */
 .large-button {
   position: relative;
@@ -277,40 +202,6 @@ svg {
 .large-button:focus::after {
   transform: scale(1.5);
   opacity: 1;
-}
-
-/* Header */
-
-.primary-header {
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  margin: 2rem clamp(1.5rem, 5vw, 2.5rem);
-}
-
-.primary-navigation {
-  --underline-gap: 2rem;
-  --gap: clamp(1.5rem, 5vw, 2.5rem);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  background: hsl(var(--clr-light)/0.05);
-  backdrop-filter: blur(1.5rem);
-
-  a {
-    text-decoration: none;
-
-    >span {
-      font-weight: 700;
-      margin-right: 0.5em;
-    }
-  }
-}
-
-.mobile-nav-toggle {
-  display: none;
 }
 
 .underline-indicators>* {
@@ -375,9 +266,4 @@ svg {
     color: hsl(var(--clr-dark));
     background-color: hsl(var(--clr-white));
   }
-}
-
-/* Home */
-.home {
-  background-image: url('../images/home/background-home-mobile.jpg');
 }

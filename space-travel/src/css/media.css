@@ -1,25 +1,9 @@
 /* Media queries */
-
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 @media (min-width: 35em) {
   :root {
     --fs-800: 5rem;
     --fs-700: 2.5rem;
+    --fs-500: 1.25rem;
     --fs-600: 1.5rem;
     --fs-400: 1rem;
   }
@@ -30,20 +14,17 @@
 
   .home {
     background-position: center center;
-    background-image: url('../images/home/background-home-tablet.jpg');
+    background-image: url('../../images/home/background-home-tablet.jpg');
   }
 }
 
 @media (min-width: 60em) {
   :root {
-    --fs-900: 9.375rem;
     --fs-800: 6.25rem;
     --fs-700: 3.5rem;
-    --fs-600: 2rem;
     --fs-500: 1.75rem;
+    --fs-600: 2rem;
     --fs-400: 1.125rem;
-    --fs-300: 1rem;
-    --fs-200: 0.875rem;
   }
 
   .grid-container {
@@ -92,7 +73,7 @@
   }
 
   .home {
-    background-image: url('../images/home/background-home-desktop.jpg');
+    background-image: url('../../images/home/background-home-desktop.jpg');
   }
 }
 
