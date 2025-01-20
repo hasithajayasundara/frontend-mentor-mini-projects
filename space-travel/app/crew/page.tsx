@@ -34,11 +34,13 @@ const Crew = () => {
           {selectedCrewMember.bio}
         </p>
       </section>
-      <Image
-        src={selectedCrewMember.images.webp}
-        alt="Douglas Hurley"
-        className="crew-image"
-      />
+      <div className="crew-image">
+        <Image
+          src={selectedCrewMember.images.webp}
+          alt={selectedCrewMember.name}
+          sizes="(max-width: 560px) 100%, (max-width: 960px) 50vw, 33vw"
+        />
+      </div>
     </>
   )
 };

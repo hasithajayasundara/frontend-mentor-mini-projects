@@ -97,9 +97,11 @@ body {
     'tabs'
     'body';
 
-  >.crew-image {
+  .crew-image {
+    height: 25rem;
     grid-area: image;
     border-bottom: 1px solid hsl(var(--clr-light)/0.01);
+    overflow-y: hidden;
   }
 
   >.dot-indicators {
@@ -135,7 +137,6 @@ body {
 
   .technology-image {
     grid-area: image;
-    width: 100%;
   }
 
   .numbered-indicators {

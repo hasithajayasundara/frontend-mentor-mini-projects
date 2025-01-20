@@ -16,6 +16,7 @@ const Destination = () => {
         Pick your destination
       </h1>
       <Image
+        priority
         src={selectedDestination.images.webp}
         alt={selectedDestination.name}
         className="destination-image"
